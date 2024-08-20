@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Untitled Document</title>
+    <link
+      rel="stylesheet"
+      href="https://demo1.tiemthietke.com/frontend/css/utilities.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://demo1.tiemthietke.com/frontend/css/base.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://demo1.tiemthietke.com/frontend/css/header.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://demo1.tiemthietke.com/frontend/css/section-footer.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://demo1.tiemthietke.com/frontend/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://demo1.tiemthietke.com/lib/sweetalert2/css/sweetalert2.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://demo1.tiemthietke.com/lib/sweetalert2/css/sweetalert2.min.css"
+    />
+    <style>
+      .countdown_in {
+        display: inline-block;
+        margin: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      class="form_in"
+      id="regis"
+      style="
+        background: url(https://demo1.tiemthietke.com/storage/setting/2/bg_ss03_1_1.jpg)
+          center;
+        height: 100vh;
+      "
+      bis_skin_checked="1"
+    >
+      <div class="ctnr" bis_skin_checked="1">
+        <div class="row" bis_skin_checked="1">
+          <div
+            class="clm"
+            style="--w-xs: 12; --w-md: 1"
+            bis_skin_checked="1"
+          ></div>
+          <div class="clm" style="--w-xs: 12; --w-md: 10" bis_skin_checked="1">
+            <div class="ft-top__articles" bis_skin_checked="1">
+              <div class="box__form" bis_skin_checked="1">
+                <form
+                  action="https://demo1.tiemthietke.com/contact/store-ajax2"
+                  data-flag="1"
+                  data-url="https://demo1.tiemthietke.com/contact/store-ajax2"
+                  data-ajax="submitDangKy"
+                  data-target="alert"
+                  data-href="#modalAjax"
+                  data-content="#content"
+                  data-method="POST"
+                  method="POST"
+                  name="frm"
+                >
+                  <input
+                    type="hidden"
+                    name="_token"
+                    value="rUek6cSk5xe4sdtM8pVjuMqwjwwhHAcUGB5bzOn9"
+                  />
+                  <div class="row align-items-center" bis_skin_checked="1">
+                    <div
+                      class="clm"
+                      style="--w-xs: 12; --w-md: 12"
+                      bis_skin_checked="1"
+                    >
+                      <div class="title_dangky" bis_skin_checked="1">
+                        Đăng ký THAM GIA NGAY
+                      </div>
+                    </div>
+                    <div
+                      class="clm"
+                      style="--w-xs: 12; --w-md: 6"
+                      bis_skin_checked="1"
+                    >
+                      <div class="consultatinon_form_box" bis_skin_checked="1">
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="Họ và tên"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="clm"
+                      style="--w-xs: 12; --w-md: 6"
+                      bis_skin_checked="1"
+                    >
+                      <div class="consultatinon_form_box" bis_skin_checked="1">
+                        <input
+                          type="text"
+                          name="phone"
+                          placeholder="Số điện thoại"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="clm"
+                      style="--w-xs: 12; --w-md: 12"
+                      bis_skin_checked="1"
+                    >
+                      <div
+                        class="consultatinon_form_submit"
+                        bis_skin_checked="1"
+                      >
+                        <button type="submit" class="consultatinon_form_btn">
+                          THAM GIA NGAY
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="row align-items-center" bis_skin_checked="1">
+                  <div
+                    class="clm"
+                    style="--w-xs: 12; --w-md: 12"
+                    bis_skin_checked="1"
+                  >
+                    <div class="box_deal" bis_skin_checked="1">
+                      <h2>THỜI GIAN ĐĂNG KÝ CÒN</h2>
+                      <div class="deal-time-holder" bis_skin_checked="1">
+                        <div
+                          class="deal-countdown-holder"
+                          id="js-deal-countdown"
+                          data-time_left="30-05-2024, 8:00 am"
+                          bis_skin_checked="1"
+                        >
+                          <div class="countdown_in" bis_skin_checked="1">
+                            <b id="days">00</b>
+                            <p>ngày</p>
+                          </div>
+                          <div class="countdown_in" bis_skin_checked="1">
+                            <b id="hours">08</b>
+                            <p>giờ</p>
+                          </div>
+                          <div class="countdown_in" bis_skin_checked="1">
+                            <b id="minutes">53</b>
+                            <p>phút</p>
+                          </div>
+                          <div class="countdown_in" bis_skin_checked="1">
+                            <b id="seconds">52</b>
+                            <p>giây</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="clm"
+            style="--w-xs: 12; --w-md: 1"
+            bis_skin_checked="1"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function getRandomHours(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function startCountdown() {
+        const now = new Date();
+        const randomHours = getRandomHours(8, 12);
+        const endTime = new Date(now.getTime() + randomHours * 60 * 60 * 1000);
+
+        function updateCountdown() {
+          const now = new Date();
+          const timeLeft = endTime - now;
+
+          if (timeLeft <= 0) {
+            document.getElementById("days").textContent = "00";
+            document.getElementById("hours").textContent = "00";
+            document.getElementById("minutes").textContent = "00";
+            document.getElementById("seconds").textContent = "00";
+            return;
+          }
+
+          const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+          document.getElementById("days").textContent = days
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("hours").textContent = hours
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("minutes").textContent = minutes
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("seconds").textContent = seconds
+            .toString()
+            .padStart(2, "0");
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+      }
+
+      document.addEventListener("DOMContentLoaded", startCountdown);
+    </script>
+  </body>
+</html>
