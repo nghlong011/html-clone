@@ -83,7 +83,9 @@ function loadPage(page, item) {
   }
 }
 
-
+function redirectToPage() {
+  window.location.href = "./countdown/index.html"; // Thay đổi đường dẫn tới trang bạn muốn chuyển đến
+}
 
 // Handle browser navigation (back/forward)
 window.addEventListener("popstate", (event) => {
