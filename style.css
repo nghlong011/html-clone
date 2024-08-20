@@ -4,43 +4,42 @@ body {
   margin: 0;
   padding: 0;
   background-color: white;
-  perspective: 1000px;
+}
+input:focus {
+  border: none; /* Loại bỏ border */
+  outline: none; /* Loại bỏ outline mặc định của trình duyệt */
+}
+textarea:focus {
+  border: none; /* Loại bỏ border */
+  outline: none; /* Loại bỏ outline mặc định của trình duyệt */
+}
+.main-color{
+  color: #35ab39;
 }
 .layout {
   height: 100vh;
   overflow: hidden;
   position: relative;
 }
+.row{
+  display: flex;
+  width: 100%;
+}
 .container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
   display: flex;
   flex-direction: column;
   padding: 20px;
   margin-left: 90px;
   height: 100%;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
-.page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: #fff;
-}
-#page-home {
-  background-color: #3498db;
+.container.fade-out {
+  opacity: 0;
 }
 
-#page-about {
-  background-color: #e74c3c;
-  transform: rotateY(180deg);
+.container.fade-in {
+  opacity: 1;
 }
 .text-content {
   width: 50%;
@@ -96,10 +95,17 @@ body {
   height: auto;
   text-align: center;
   padding: 15px 5px;
+  border-right: 5px solid transparent;
+  transition: border-color 0.3s ease;
 }
 .sidebar-item a{
   text-decoration: none;
   color: #b3b3b3;
+
+}
+.sidebar-item.select {
+  border-right: 5px solid #35ab39; /* Màu xanh khi được chọn */
+  background-color: #f0f0f0; /* Tùy chọn: thay đổi màu nền khi được chọn */
 }
 .sidebar-item span {
   word-wrap: break-word;
@@ -186,6 +192,90 @@ button {
   color: #4caf50;
 }
 
+.testimonial-section {
+  width: 100%;  
+  padding: 50px 20px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+.testimonial-header {
+  margin-bottom: 40px;
+  float: left;
+  width: 20%;
+}
+
+.testimonial-header h4 {
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.testimonial-header h2 {
+  font-size: 3.2rem;
+  margin-bottom: 25px;
+}
+
+.testimonial-header p {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.testimonial-slider {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.testimonial-slide {
+  width: 350px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 0 15px;
+  height: fit-content;
+}
+
+.quote {
+  font-size: 4em;
+  color: #4CAF50;
+  line-height: 1;
+}
+
+.testimonial-slide p {
+  margin-bottom: 20px;
+}
+
+.customer-info {
+  display: flex;
+  align-items: center;
+}
+
+.customer-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.slider-controls {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.slider-controls button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
 /* Shapes */
 .shape-container {
   position: absolute;
@@ -247,6 +337,49 @@ button {
 .zalo-gif img {
   width: 50px; /* Adjust width as needed */
   height: auto; /* Maintain aspect ratio */
+}
+.content{
+  background-color: #35ab39;
+  color: white;
+  padding: 50px;
+}
+.progess-container {
+  width: 100%;
+  background-color: #f3f3f3; /* Màu nền của thanh tiến độ */
+  border-radius: 9999px;
+    overflow: hidden; /* Ẩn các phần tử tràn ra ngoài */
+  height: 20px; /* Chiều cao của thanh tiến độ */
+  margin: 10px 0; /* Khoảng cách trên và dưới thanh tiến độ */
+}
+
+.progess {
+  height: 100%; /* Chiều cao của thanh tiến độ */
+  background-color: #35ab39; /* Màu của thanh tiến độ */
+  width: 0; /* Chiều rộng mặc định (sẽ được thay đổi bằng cách sử dụng inline style) */
+  transition: width 0.5s ease; /* Hiệu ứng chuyển tiếp khi thay đổi chiều rộng */
+}
+.contact-layout{
+  width: 65%;
+  height: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.address-item{
+  font-size: 16px;
+  align-items: center;
+  background-color: #f9f9f9;
+  margin-top: 40px;
+  padding: 30px 0 30px 30px;
+}
+.address-item h6{
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.address-item i{
+  font-size: 40px;
+  margin-right: 20px;
+  color: #35ab39;
 }
 @keyframes rotate-square {
   from {
@@ -331,6 +464,110 @@ button {
     height: 150px;
     transform: rotate(45deg);
   }
+  .services-layout{
+      display: flex;
+      width: 65%;
+      margin: 0 auto;
+      position: relative;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .services-content-left{
+    width: 40%;
+  }
+  .services-content-right{
+    margin-left: 5%;
+    width: 55%;
+  }
+  .services-about {
+    height: 550px;
+    width: 100%;
+    display: block;
+    position: relative;
+    top: 0;
+    padding-top: 10px;
+    background-image: url(data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJUlEQVQoU2N8+vTpfwYGBgZpaWlGEI0LMBKtEJ8pyHJ4rRtVCAAd/QgLwKUsAgAAAABJRU5ErkJggg==) !important;
+    background-position: 0 0px !important;
+    background-repeat: repeat !important;
+    right: 0;
+    z-index: -1;
+    background-size: 15px;
+}
+.services-about .service-image {
+  float: right;
+  max-width: 450px;
+}
+.services-about .content {
+  position: absolute;
+  background-color: #35ab39;
+  bottom: 0;
+  left: 0;
+  max-width: 500px;
+  color: #fff;
+  padding: 50px;
+  text-align: left;
+}
+.service-icon{
+  justify-content: space-between;
+  margin-top: 20%;
+}
+.counters{
+  width: fit-content;
+}
+.counters p{
+  margin: 0 0 5px 25px;
+} 
+.counters i{
+  font-size: 40px;
+  color: #35ab39;
+} 
+.map-half {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.sub-title{
+  font-size: 16px;
+  line-height: 1.2;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.contact-left{
+  padding-right: 5%;
+}
+.contact-right{
+  width: 50%;
+}
+.contact-form .form-control {
+  border: none;
+  border-bottom: 1px solid #d4d4d4;
+  padding: 10px 0;
+  background: #fff;
+  letter-spacing: .5px;
+  font-weight: 400;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: 14px;
+  min-height: 35px;
+  position: relative;
+  -webkit-transition: border .9s ease;
+  -o-transition: border .9s ease;
+  transition: border .9s ease;
+}
+.contact-form textarea.form-control {
+  min-height: 140px;
+  resize: none;
+  margin-bottom: 0;
+  width: 100%;
+}
+.send-mesage{
+  margin-top: 5%;
+  width: 100%;
+  border-radius: 999px;
+}
 }
 /* mobile-css home */
 @media (max-width: 991px) {
@@ -422,5 +659,103 @@ button {
     width: 100%; 
     object-fit: cover; 
     height: calc(200px + 5vh);
+  }
+  .testimonial-section{
+    display: block;
+    justify-content: center;
+    align-items: center;
+  }
+  .testimonial-header{
+    width: 100%;
+    float: none;
+  }
+  .testimonial-slide{
+    margin: 0;
+  }
+
+  .services-content-left p{
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .services-content-left h1{
+    font-weight:500;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+  .first-title{
+    text-align: center;
+  }
+  .service-icon{
+    justify-content: space-between;
+  }
+  .counters{
+    width: fit-content;
+  }
+  .counters p{
+    margin: 0 0 5px 25px;
+  } 
+  .counters i{
+    font-size: 40px;
+  } 
+  .services-about img{
+    display: none;
+  }
+  .contact-layout{
+    display: block;
+    width: 100%;
+  }
+  .map-half {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .sub-title{
+    font-size: 16px;
+    line-height: 1.2;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+    text-align: center;
+  }
+  .contact-left{
+    padding-right: 5%;
+  }
+  .contact-right{
+    width: 100%;
+    margin-top: 5%;
+  }
+  .contact-form .form-control {
+    border: none;
+    border-bottom: 1px solid #d4d4d4;
+    padding: 10px 0;
+    background: #fff;
+    letter-spacing: .5px;
+    font-weight: 400;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 14px;
+    min-height: 35px;
+    position: relative;
+    -webkit-transition: border .9s ease;
+    -o-transition: border .9s ease;
+    transition: border .9s ease;
+    width: 100%;
+  }
+  .contact-form textarea.form-control {
+    min-height: 140px;
+    resize: none;
+    margin-bottom: 0;
+    width: 100%;
+  }
+#email-name{
+  display: block;
+}
+  .send-mesage{
+    margin-top: 5%;
+    width: 100%;
+    border-radius: 999px;
+    margin-bottom: 5%;
   }
 }
