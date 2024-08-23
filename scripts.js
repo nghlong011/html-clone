@@ -37,7 +37,6 @@ function initializeSlider() {
 }
 
 // Function to load page content
-// Function to load page content
 function loadPage(page, item) {
   const container = document.querySelector(".container");
 
@@ -84,7 +83,24 @@ function loadPage(page, item) {
 }
 
 function redirectToPage() {
-  window.location.href = "./countdown/index.html"; // Thay đổi đường dẫn tới trang bạn muốn chuyển đến
+  let phoneNumberInput = document.querySelector("#phoneNumber");
+  let phoneNumber = phoneNumberInput.value;
+  console.log("Phone Number:", phoneNumber);
+  let data = {
+    'entry.619530836': phoneNumber,
+  };
+  if (phoneNumber.length < 10) {
+    alert("Số điện thoại không hợp lệ");
+    return;
+    }
+  let queryString = new URLSearchParams(data).toString();
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://docs.google.com/forms/u/0/d/e/1FAIpQLScqnP7cNZOaxIkDeRgkoPDWAE5XilhZyOUpf34JHlmgpgBrNw/formResponse", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.send(queryString);
+  alert("Đăng ký thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.")
+  // Reset input to empty after submission
+  phoneNumberInput.value = "";
 }
 
 // Handle browser navigation (back/forward)
